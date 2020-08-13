@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @room = Room.finnd(params[:room_id])
+    @messages = @room.messages.includes(:user)
   end
 
   def create
